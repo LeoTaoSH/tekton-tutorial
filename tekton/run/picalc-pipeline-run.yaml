@@ -13,7 +13,7 @@ spec:
     - name: pathToYamlFile
       value: "knative/picalc.yaml"
     - name: imageUrl
-      value: <REGISTRY>/<NAMESPACE>/picalc
+      value: us.icr.io/zhanggbj-cr/picalc
     - name: imageTag
       value: "1.0"
   trigger:
