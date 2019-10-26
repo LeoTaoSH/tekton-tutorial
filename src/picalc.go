@@ -28,6 +28,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
         fmt.Fprintf(w, "iterations parameter not valid\n")
         return
     }
+    fmt.Println("=================== Hello, this is BLUE Version! ===================")
     fmt.Fprintf(w, "%.10f\n", calculatePi(iterations))
 }
 
