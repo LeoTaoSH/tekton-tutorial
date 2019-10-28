@@ -1,11 +1,13 @@
 package main
 
-import "testing"
+import (
+    "strings"
+    "testing"
+)
 
-func TestCalculatePi(t *testing.T) {
-    var pi float64
-    pi = calculatePi(20000000)
-    if pi < 3.1415926 || pi >= 3.1415927 {
-       t.Errorf("Value %.10f is incorrect", pi)
+func TestSay(t *testing.T) {
+    word := say("world")
+    if !strings.Contains(word, "world") {
+        t.Errorf("world is not in word")
     }
 }

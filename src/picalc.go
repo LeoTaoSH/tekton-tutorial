@@ -5,35 +5,21 @@ import (
     "log"
     "net/http"
     "os"
-    "strconv"
 )
 
-// Calculate pi using Gregory-Leibniz series:   (4/1) - (4/3) + (4/5) - (4/7) + (4/9) - (4/11) + (4/13) - (4/15) ...
-func calculatePi(iterations int) float64 {
-    var result float64 = 0.0
-    var sign float64 = 1.0
-    var denominator float64 = 1.0
-    for i := 0; i < iterations; i++ {
-        result = result + (sign * 4/denominator)
-        denominator = denominator + 2
-        sign = -sign
-    }
-    return result
+func say(word string) string {
+    title := "[20191031] Hello World"
+    return title + " " + word
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    log.Print("Pi calculator received a request.")
-    iterations, err := strconv.Atoi(r.URL.Query()["iterations"][0])
-    if err != nil {
-        fmt.Fprintf(w, "iterations parameter not valid\n")
-        return
-    }
-    fmt.Println("=================== Hello, this is BLUE Version! ===================")
-    fmt.Fprintf(w, "%.10f\n", calculatePi(iterations))
+    log.Print("Say something!")
+    word := r.URL.Query()["word"][0]
+    fmt.Fprintf(w, "%s", say(word))
 }
 
 func main() {
-    log.Print("Pi calculator started.")
+    log.Print("Say something started.")
 
     http.HandleFunc("/", handler)
 
