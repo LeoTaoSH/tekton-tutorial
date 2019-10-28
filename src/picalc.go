@@ -8,14 +8,13 @@ import (
 )
 
 func say(word string) string {
-    title := "[20191031] Hello World"
+    title := "[20191031] Hello world, this is"
     return title + " " + word
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
     log.Print("Say something!")
-    word := r.URL.Query()["word"][0]
-    fmt.Fprintf(w, "%s", say(word))
+    fmt.Fprintf(w, "%s", say("BLUE!!!"))
 }
 
 func main() {
