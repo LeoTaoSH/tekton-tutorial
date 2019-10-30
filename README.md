@@ -339,7 +339,7 @@ spec:
     - name: revision
       value: master
     - name: url
-      value: https://github.com/IBM/tekton-tutorial
+      value: https://github.com/zhanggbj/tekton-tutorial
 ```
 
 The source code for this example is a [go program that calculates an approximation of pi](src/picalc.go).
