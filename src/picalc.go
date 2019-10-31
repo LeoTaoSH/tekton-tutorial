@@ -14,13 +14,13 @@ func say(word string) string {
 
 func handler(w http.ResponseWriter, r *http.Request) {
     log.Print("Say something!")
-    fmt.Fprintf(w, "%s\n", say("BLUE001!!!"))
+    fmt.Fprintf(w, "%s\n", say("BLUE003!!!"))
 }
 
 func main() {
     log.Print("Say something started.")
 
-    http.HandleFunc("/", handler)
+    http.HandleFunc("/", handler)   
 
     port := os.Getenv("PORT")
     if port == "" {
