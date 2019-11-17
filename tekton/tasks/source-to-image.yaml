@@ -21,7 +21,7 @@ spec:
         default: "latest"
   steps:
     - name: build-and-push
-      image: gcr.io/kaniko-project/executor
+      image: 192.168.0.116:5000/tekton/kaniko-project/executor
       command:
         - /kaniko/executor
       args:
