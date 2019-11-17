@@ -17,7 +17,7 @@ spec:
         default: "latest"
   steps:
     - name: update-yaml
-      image: alpine
+      image: 192.168.0.116:5000/alpine
       command: ["sed"]
       args:
         - "-i"
@@ -25,7 +25,7 @@ spec:
         - "s;__IMAGE__;$(inputs.params.imageUrl):$(inputs.params.imageTag);g"
         - "/workspace/git-source/$(inputs.params.pathToYamlFile)"
     - name: run-kubectl
-      image: lachlanevenson/k8s-kubectl
+      image: 192.168.0.116:5000/tektoncd/triggers/k8s-kubectl:v0.1.0
       command: ["kubectl"]
       args:
         - "apply"
