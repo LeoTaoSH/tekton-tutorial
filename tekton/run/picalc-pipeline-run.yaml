@@ -16,4 +16,5 @@ spec:
       value: 192.168.0.116:5000/picalc
     - name: imageTag
       value: "1.0"
-  serviceAccount: tekton-triggers-admin
+  serviceAccount: default
+#  serviceAccount: tekton-triggers-admin
