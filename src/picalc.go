@@ -8,13 +8,13 @@ import (
 )
 
 func say(word string) string {
-    title := "[ 20191124 ] Hello world, this is"
+    title := "[ 20191129 ] Hello world, this is"
     return title + " " + word
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
     log.Print("Say something!")
-    fmt.Fprintf(w, "%s\n", say("GREEN112344 Hello leo it's knative testing GREEN!!!"))
+    fmt.Fprintf(w, "%s\n", say("GREEN1129 Hello leo it's knative testing GREEN!!!"))
 }
 
 func main() {
