@@ -1,0 +1,49 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: build-and-deploy-gitlab-pipeline
+spec:
+  resources:
+    - name: gitlab-source
+      type: git
+  params:
+    - name: pathToContext
+      description: The path to the build context, used by Kaniko - within the workspace
+      default: src
+    - name: pathToYamlFile
+      description: The path to the yaml file to deploy within the git source
+    - name: imageUrl
+      description: Url of image repository
+    - name: imageTag
+      description: Tag to apply to the built image
+  tasks:
+  - name: source-to-image-gitlab
+    taskRef:
+      name: source-to-image-gitlab
+    params:
+      - name: pathToContext
+        value: "$(params.pathToContext)"
+      - name: imageUrl
+        value: "$(params.imageUrl)"
+      - name: imageTag
+        value: "$(params.imageTag)"
+    resources:
+      inputs:
+        - name: gitlab-source
+          resource: gitlab-source
+  - name: deploy-to-cluster-gitlab
+    taskRef:
+      name: deploy-using-kubectl-gitlab
+    runAfter:
+      - source-to-image-gitlab
+    params:
+      - name: pathToYamlFile
+        value:  "$(params.pathToYamlFile)"
+      - name: imageUrl
+        value: "$(params.imageUrl)"
+      - name: imageTag
+        value: "$(params.imageTag)"
+    resources:
+      inputs:
+        - name: gitlab-source
+          resource: gitlab-source

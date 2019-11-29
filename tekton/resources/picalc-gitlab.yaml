@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: picalc-gitlab
+spec:
+  type: git
+  params:
+    - name: revision
+      value: master
+    - name: url
+      value: http://leotaosh.xicp.io/root/tekton-tutorial

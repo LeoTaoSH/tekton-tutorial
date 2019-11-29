@@ -1,0 +1,34 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: deploy-using-kubectl-gitlab
+spec:
+  inputs:
+    resources:
+      - name: gitlab-source
+        type: git
+    params:
+      - name: pathToYamlFile
+        description: The path to the yaml file to deploy within the git source
+      - name: imageUrl
+        description: Url of image repository
+      - name: imageTag
+        description: Tag of the images to be used.
+        default: "latest"
+  steps:
+    - name: update-yaml-gitlab
+      image: 192.168.0.116:5000/alpine
+      command: ["sed"]
+      args:
+        - "-i"
+        - "-e"
+        - "s;__IMAGE__;$(inputs.params.imageUrl):$(inputs.params.imageTag);g"
+        - "/workspace/git-source/$(inputs.params.pathToYamlFile)"
+    - name: run-kubectl
+      image: 192.168.0.116:5000/tektoncd/triggers/k8s-kubectl:v0.1.0
+      command: ["kubectl"]
+      args:
+        - "apply"
+        - "-f"
+        - "/workspace/git-source/$(inputs.params.pathToYamlFile)"
+        - "--namespace=getting-started"
