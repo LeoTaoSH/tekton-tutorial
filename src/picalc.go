@@ -14,7 +14,7 @@ func say(word string) string {
 
 func handler(w http.ResponseWriter, r *http.Request) {
     log.Print("Say something!")
-    fmt.Fprintf(w, "%s\n", say("GREEN1228 Hello leo it's knative testing GREEN on github!!!"))
+    fmt.Fprintf(w, "%s\n", say("GREEN12281 Hello leo it's knative testing GREEN on github!!!"))
 }
 
 func main() {
