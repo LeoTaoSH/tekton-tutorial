@@ -600,7 +600,6 @@ Tekton provides simple, easy-to-learn features for constructing CI/CD pipelines 
 This tutorial covered the basics to get you started building your own pipelines.
 There are more features available and many more planned for upcoming releases.
 
-
 ## Related Links
 
 You can check out our other Knative-related tutorials and blogs at https://developer.ibm.com/components/knative/
