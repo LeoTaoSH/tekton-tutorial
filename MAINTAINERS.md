@@ -66,4 +66,4 @@ scope of any given component narrow. If a proposed feature does not fit that
 scope, recommend to the user that they maintain the feature on their own, and
 close the request. You may also recommend that they see if the feature gains
 traction among other users, and suggest they re-submit when they can show such
-support.
+support. 
