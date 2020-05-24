@@ -18,7 +18,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-    log.Print("Say something started.20200524")
+    log.Print("Say something started.20200524 test")
 
     http.HandleFunc("/", handler)   
 
