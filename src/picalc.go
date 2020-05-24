@@ -8,17 +8,17 @@ import (
 )
 
 func say(word string) string {
-    title := "[ 202005241 ] Hello world, this is"
+    title := "[ 202005243 ] Hello world, this is"
     return title + " " + word
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
     log.Print("Say something!")
-    fmt.Fprintf(w, "%s\n", say("GREEN202005241 Hello leo it's knative testing GREEN on github!!!"))
+    fmt.Fprintf(w, "%s\n", say("GREEN202005243 Hello leo it's knative testing GREEN on github!!!"))
 }
 
 func main() {
-    log.Print("Say something started.20200524 test hello")
+    log.Print("Say something started.20200524 test hello1")
 
     http.HandleFunc("/", handler)   
 
