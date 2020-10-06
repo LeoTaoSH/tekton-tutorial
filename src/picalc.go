@@ -13,8 +13,8 @@ func say(word string) string {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    log.Print("Say something, it's in container..20200621!")
-    fmt.Fprintf(w, "%s\n", say("GREEN20201006 Hello leo it's knative testing GREEN on github!!!"))
+    log.Print("Say something, it's in container..20201006!")
+    fmt.Fprintf(w, "%s\n", say("GREEN20201006 taoxb fixing Hello leo it's knative testing GREEN on github!!!"))
 }
 
 func main() {
